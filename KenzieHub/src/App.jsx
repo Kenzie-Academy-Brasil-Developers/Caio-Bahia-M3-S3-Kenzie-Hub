@@ -1,8 +1,12 @@
+import { RoutesMain } from "./routes"
+import { Global } from "./style/GlobalSyle"
+
 function App() {
   return (
-    <div className="App">
-      <h1>oi</h1>
-    </div>
+    <>
+      <Global />
+      <RoutesMain />
+    </>
   )
 }
 
