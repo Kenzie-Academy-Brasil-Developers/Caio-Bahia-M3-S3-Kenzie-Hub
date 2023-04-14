@@ -6,6 +6,8 @@ import { api } from "../../services/api"
 import { InputForm } from "../../components/RegFormInput"
 import { schema } from "./validator"
 import { FormOptions } from "../../components/RegFormOptions"
+import { ToastContainer, toast } from "react-toastify"
+import { MainStyled } from "./style"
 
 export const RegisterPage = () => {
   const {
@@ -20,17 +22,18 @@ export const RegisterPage = () => {
     delete data.repeatpassword
 
     try {
-      console.log(data)
-      console.log(api.data)
       await api.post("/users", data)
-      navigate("/")
+      toast.success("Usuário foi cadastrado com sucesso!")
+      setTimeout(() => {
+        navigate("/")
+      }, 1500)
     } catch (error) {
-      console.log(error)
+      toast.error(error.response.data.message)
     }
   }
-  // console.log(handleSubmit(handleRegister))
+
   return (
-    <main>
+    <MainStyled>
       <section>
         <h2>Registro</h2>
         <form onSubmit={handleSubmit(handleRegister)}>
@@ -83,6 +86,7 @@ export const RegisterPage = () => {
             error={errors.contact?.message}
             {...register("contact")}
           />
+
           <FormOptions
             id="course_module"
             label="Selecionar módulo"
@@ -92,6 +96,6 @@ export const RegisterPage = () => {
           <button type="submit">Cadastrar</button>
         </form>
       </section>
-    </main>
+    </MainStyled>
   )
 }

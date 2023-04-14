@@ -12,8 +12,9 @@ export const schema = z
       .regex(/(?=.*?[0-9])/, "É necessário pelo menos uma número.")
       .regex(/(?=.*?[!,@,#,$,%,¨,&,*,_,?])/, "É necessário ter um símbolo."),
     repeatpassword: z.string().min(1, "A senha deve conter pelomenos 8 caracteres"),
-    about: z.string().min(1, "Este campo é obrigatório."),
-    contact: z.string().min(1, "Este campo é obrigatório.")
+    bio: z.string().min(1, "Este campo é obrigatório."),
+    contact: z.string().min(1, "Este campo é obrigatório."),
+    course_module: z.string().min(1, "Este campo é obrigatório.")
   })
   .refine(({ password, repeatpassword }) => repeatpassword === password, {
     message: "As senhas devem corresponder",
