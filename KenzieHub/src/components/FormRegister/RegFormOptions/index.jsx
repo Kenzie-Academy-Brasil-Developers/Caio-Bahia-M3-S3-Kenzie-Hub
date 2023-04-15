@@ -1,7 +1,6 @@
 import React, { forwardRef } from "react"
 
 export const FormOptions = forwardRef(({ id, label, error, ...rest }, ref) => {
-  // console.log({ ...rest })
   return (
     <div>
       {label ? <label htmlFor={id}>{label}</label> : null}

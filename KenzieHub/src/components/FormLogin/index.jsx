@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { InputLogin } from "./InputLogin"
 import { api } from "../../services/api"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { schema } from "./validate"
+import { schema } from "./validator"
 import { toast } from "react-toastify"
 
 export const FormLogin = () => {
