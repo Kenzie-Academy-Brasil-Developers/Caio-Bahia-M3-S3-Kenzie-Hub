@@ -35,11 +35,19 @@ export const Dashboard = () => {
     // toast
   }
   return (
-    <div>
-      <h1>Home</h1>
-      <button onClick={() => logout()}>OOOOOOOOPA</button>
-      <p>{user.name}</p>
-      <p>{user.course_module}</p>
-    </div>
+    <>
+      <header>
+        <img src="" alt="LOGO" />
+        <button onClick={() => logout()}>Sair</button>
+      </header>
+      <div>
+        <p>{user.name}</p>
+        <p>{user.course_module}</p>
+      </div>
+      <div>
+        <h2>{"Que pena! Estamos em desenvolvimento :("}</h2>
+        <p>Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
+      </div>
+    </>
   )
 }

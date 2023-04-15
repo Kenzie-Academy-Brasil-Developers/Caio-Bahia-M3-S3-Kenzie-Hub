@@ -10,9 +10,18 @@ export const LoginPage = () => {
   }
 
   return (
-    <div>
-      <FormLogin />
-      <button onClick={() => goToRegister()}>Registrar</button>
-    </div>
+    <>
+      <img src="" alt="Logo" />
+      <div>
+        <div>
+          <h2>Login</h2>
+        </div>
+        <FormLogin />
+        <div>
+          <p>Ainda não possui uma conta?</p>
+          <button onClick={() => goToRegister()}>Cadastre-se</button>
+        </div>
+      </div>
+    </>
   )
 }
