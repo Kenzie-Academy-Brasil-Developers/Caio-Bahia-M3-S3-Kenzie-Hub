@@ -5,7 +5,7 @@ import { api } from "../../services/api"
 import { InputForm } from "./RegFormInput"
 import { schema } from "./validator"
 import { FormOptions } from "./RegFormOptions"
-import { ToastContainer, toast } from "react-toastify"
+import { toast } from "react-toastify"
 
 export const FormRegister = () => {
   const {
@@ -31,7 +31,7 @@ export const FormRegister = () => {
   }
   return (
     <>
-      <form onSubmit={handleSubmit(handleRegister)}>
+      <FormRegister onSubmit={handleSubmit(handleRegister)}>
         <InputForm
           id="name"
           placeholder="Digite aqui seu nome"
@@ -89,7 +89,7 @@ export const FormRegister = () => {
           {...register("course_module")}
         />
         <button type="submit">Cadastrar</button>
-      </form>
+      </FormRegister>
     </>
   )
 }

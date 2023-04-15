@@ -6,6 +6,7 @@ import { api } from "../../services/api"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { schema } from "./validator"
 import { toast } from "react-toastify"
+import { DivContainerFormLogin } from "./style"
 
 export const FormLogin = () => {
   const navigate = useNavigate()
@@ -36,9 +37,8 @@ export const FormLogin = () => {
   }
 
   return (
-    <div>
+    <DivContainerFormLogin>
       <form onSubmit={handleSubmit(submitForm)}>
-        <h2>Login</h2>
         <InputLogin
           id="email"
           type="email"
@@ -55,8 +55,8 @@ export const FormLogin = () => {
           error={errors.password?.message}
           {...register("password")}
         />
-        <button type="submit">Login</button>
+        <button type="submit">Entrar</button>
       </form>
-    </div>
+    </DivContainerFormLogin>
   )
 }

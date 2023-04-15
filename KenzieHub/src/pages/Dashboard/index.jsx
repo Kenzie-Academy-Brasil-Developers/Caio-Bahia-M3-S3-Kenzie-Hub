@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { api } from "../../services/api"
 import { useNavigate } from "react-router-dom"
+import Logo from "../../assets/Logo.svg"
+import { DashboardContainer } from "./style"
 
 export const Dashboard = () => {
   const navigate = useNavigate()
@@ -35,19 +37,19 @@ export const Dashboard = () => {
     // toast
   }
   return (
-    <>
+    <DashboardContainer>
       <header>
-        <img src="" alt="LOGO" />
+        <img src={Logo} alt="logo" />
         <button onClick={() => logout()}>Sair</button>
       </header>
-      <div>
-        <p>{user.name}</p>
-        <p>{user.course_module}</p>
+      <div className="dashboard-header">
+        <h2>Olá,{user.name}!</h2>
+        <h3>{user.course_module}</h3>
       </div>
-      <div>
+      <div className="dashboard-app">
         <h2>{"Que pena! Estamos em desenvolvimento :("}</h2>
         <p>Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
       </div>
-    </>
+    </DashboardContainer>
   )
 }
