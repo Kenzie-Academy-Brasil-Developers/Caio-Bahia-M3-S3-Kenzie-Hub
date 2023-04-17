@@ -35,7 +35,6 @@ export const Dashboard = () => {
   const logout = () => {
     localStorage.removeItem("@KenzieHub:TOKEN")
     navigate("/")
-    // toast
   }
   return (
     <DashboardContainer>

@@ -7,10 +7,6 @@ import Logo from "../../assets/Logo.svg"
 export const LoginPage = () => {
   const navigate = useNavigate()
 
-  // const goToRegister = () => {
-  //   navigate("/register")
-  // }
-
   return (
     <>
       <LoginContainer>
