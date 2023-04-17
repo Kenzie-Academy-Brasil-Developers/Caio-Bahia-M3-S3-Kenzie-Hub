@@ -14,7 +14,7 @@ export const MainStyled = styled.main`
     flex-direction: column;
     align-items: center;
     width: 90%;
-
+    max-width: 380px;
     header {
       display: flex;
       -webkit-box-pack: justify;

@@ -39,16 +39,22 @@ export const Dashboard = () => {
   return (
     <DashboardContainer>
       <header>
-        <img src={Logo} alt="logo" />
-        <button onClick={() => logout()}>Sair</button>
+        <div>
+          <img src={Logo} alt="logo" />
+          <button onClick={() => logout()}>Sair</button>
+        </div>
       </header>
       <div className="dashboard-header">
-        <h2>Olá,{user.name}!</h2>
-        <h3>{user.course_module}</h3>
+        <div>
+          <h2>Olá,{user.name}!</h2>
+          <h3>{user.course_module}</h3>
+        </div>
       </div>
       <div className="dashboard-app">
-        <h2>{"Que pena! Estamos em desenvolvimento :("}</h2>
-        <p>Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
+        <div>
+          <h2>{"Que pena! Estamos em desenvolvimento :("}</h2>
+          <p>Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
+        </div>
       </div>
     </DashboardContainer>
   )
