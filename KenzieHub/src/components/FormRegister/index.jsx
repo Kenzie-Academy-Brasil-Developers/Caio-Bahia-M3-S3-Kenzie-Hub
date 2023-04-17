@@ -6,6 +6,7 @@ import { InputForm } from "./RegFormInput"
 import { schema } from "./validator"
 import { FormOptions } from "./RegFormOptions"
 import { toast } from "react-toastify"
+import { FormRegStyled } from "./style"
 
 export const FormRegister = () => {
   const {
@@ -18,7 +19,6 @@ export const FormRegister = () => {
 
   const handleRegister = async (data) => {
     delete data.repeatpassword
-
     try {
       await api.post("/users", data)
       toast.success("Usuário foi cadastrado com sucesso!")
@@ -31,7 +31,7 @@ export const FormRegister = () => {
   }
   return (
     <>
-      <FormRegister onSubmit={handleSubmit(handleRegister)}>
+      <FormRegStyled onSubmit={handleSubmit(handleRegister)}>
         <InputForm
           id="name"
           placeholder="Digite aqui seu nome"
@@ -40,7 +40,6 @@ export const FormRegister = () => {
           error={errors.name?.message}
           {...register("name")}
         />
-        {/* {console.log(errors.name)} */}
         <InputForm
           id="email"
           placeholder="Digite aqui seu e-mail"
@@ -89,7 +88,7 @@ export const FormRegister = () => {
           {...register("course_module")}
         />
         <button type="submit">Cadastrar</button>
-      </FormRegister>
+      </FormRegStyled>
     </>
   )
 }

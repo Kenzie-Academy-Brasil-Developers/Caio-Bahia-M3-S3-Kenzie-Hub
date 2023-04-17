@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const MainStyled = styled.main`
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,9 +17,12 @@ export const MainStyled = styled.main`
 
     header {
       display: flex;
+      -webkit-box-pack: justify;
       justify-content: space-between;
       width: 100%;
-      margin-bottom: 32px;
+      /* margin-bottom: 32px; */
+      margin: 30px auto;
+      padding: 0px 1px;
       img {
         width: 120px;
       }
@@ -52,6 +55,7 @@ export const MainStyled = styled.main`
       width: 100%;
       box-shadow: 0px 3.19812px 31.9812px -7.99531px rgba(0, 0, 0, 0.25);
       border-radius: 3.19812px;
+      margin-bottom: 46px;
       .small-text-call {
         display: flex;
         flex-direction: column;

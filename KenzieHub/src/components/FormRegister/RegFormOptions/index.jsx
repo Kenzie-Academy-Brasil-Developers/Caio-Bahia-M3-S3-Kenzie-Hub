@@ -1,10 +1,11 @@
 import React, { forwardRef } from "react"
+import { RegisterSelect, SelectContainer } from "./style"
 
 export const FormOptions = forwardRef(({ id, label, error, ...rest }, ref) => {
   return (
-    <div>
+    <SelectContainer>
       {label ? <label htmlFor={id}>{label}</label> : null}
-      <select id={id} ref={ref} {...rest}>
+      <RegisterSelect id={id} ref={ref} {...rest}>
         <option value="">Selecione o módulo</option>
         <option value="Primeiro módulo (Introdução ao Frontend)">
           Primeiro módulo (Introdução ao Frontend)
@@ -16,8 +17,8 @@ export const FormOptions = forwardRef(({ id, label, error, ...rest }, ref) => {
           Terceiro módulo (Introdução ao Backend)
         </option>
         <option value="Quarto módulo (Backend Avançado)"> Quarto módulo (Backend Avançado)</option>
-      </select>
-      {error ? <p>{error}</p> : null}
-    </div>
+      </RegisterSelect>
+      {error ? <p className="register-error">{error}</p> : null}
+    </SelectContainer>
   )
 })
