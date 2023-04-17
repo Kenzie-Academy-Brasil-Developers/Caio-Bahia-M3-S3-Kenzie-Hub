@@ -20,6 +20,7 @@ export const InputContainer = styled.div`
     padding: 0px 10px;
     :hover {
       border: 1px solid #f8f9fa;
+      color: #f8f9fa;
     }
   }
   .register-error {

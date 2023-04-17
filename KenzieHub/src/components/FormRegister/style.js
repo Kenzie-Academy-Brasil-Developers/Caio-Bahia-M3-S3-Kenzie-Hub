@@ -12,14 +12,15 @@ export const FormRegStyled = styled.form`
   button {
     width: 100%;
     height: 38.5px;
-    border: 1.2px solid #ff577f;
+    border: 1.2px solid #59323f;
     border-radius: 4.5px;
-    background: #ff577f;
+    background: #59323f;
     color: #ffffff;
     font-weight: 500;
     font-size: 14px;
     :hover {
-      background-color: #59323f;
+      background-color: #ff577f;
+      border: 1.2px solid #ff577f;
     }
   }
 `

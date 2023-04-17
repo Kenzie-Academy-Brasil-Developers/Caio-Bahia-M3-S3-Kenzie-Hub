@@ -3,6 +3,8 @@ import { api } from "../../services/api"
 import { useNavigate } from "react-router-dom"
 import Logo from "../../assets/Logo.svg"
 import { DashboardContainer } from "./style"
+import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 export const Dashboard = () => {
   const navigate = useNavigate()
@@ -21,11 +23,10 @@ export const Dashboard = () => {
             }
           })
           .then((response) => {
-            // console.log(response)
             setUser(response.data)
           })
       } catch (error) {
-        console.log(error)
+        toast.error(error)
       }
     }
     auth()

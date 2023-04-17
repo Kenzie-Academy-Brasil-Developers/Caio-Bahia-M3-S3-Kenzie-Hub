@@ -6,6 +6,7 @@ import { api } from "../../services/api"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { schema } from "./validator"
 import { toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 import { DivContainerFormLogin } from "./style"
 
 export const FormLogin = () => {
@@ -23,16 +24,15 @@ export const FormLogin = () => {
   const submitForm = async (data) => {
     try {
       await api.post("/sessions", data).then((response) => {
-        console.log(response)
         localStorage.setItem("@KenzieHub:TOKEN", response.data.token)
         toast.success("Usuario foi logado com sucesso!")
         setTimeout(() => {
           navigate("/dashboard")
         }, 1500)
       })
-      console.log(data)
+      // console.log(data)
     } catch (error) {
-      console.log(error.response.data.message)
+      toast.error(error.response.data.message)
     }
   }
 
