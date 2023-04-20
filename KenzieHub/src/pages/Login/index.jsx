@@ -1,12 +1,10 @@
 import React from "react"
-import { FormLogin } from "../../components/FormLogin"
-import { useNavigate } from "react-router-dom"
+import { FormLogin } from "../../components/Forms/FormLogin"
+import { Link, useNavigate } from "react-router-dom"
 import { DivCentralLogin, DivLoginContainer, GotoRegisterContainer, LoginContainer } from "./style"
 import Logo from "../../assets/Logo.svg"
 
 export const LoginPage = () => {
-  const navigate = useNavigate()
-
   return (
     <>
       <LoginContainer>
@@ -17,7 +15,7 @@ export const LoginPage = () => {
             <FormLogin />
             <GotoRegisterContainer>
               <p>Ainda não possui uma conta?</p>
-              <button onClick={() => navigate("/register")}>Cadastre-se</button>
+              <Link to={"/register"}>Cadastre-se</Link>
             </GotoRegisterContainer>
           </DivLoginContainer>
         </DivCentralLogin>

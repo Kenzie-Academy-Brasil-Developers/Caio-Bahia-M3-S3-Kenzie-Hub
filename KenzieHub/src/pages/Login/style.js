@@ -61,10 +61,27 @@ export const GotoRegisterContainer = styled.div`
     border: 1.2182px solid #868e96;
     border-radius: 4px;
     background: #868e96;
-
     color: #f8f9fa;
     font-weight: 500;
     font-size: 14px;
+    :hover {
+      background: #343b41;
+      border: 1.2182px solid #343b41;
+    }
+  }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 38.5px;
+    border: 1.2182px solid #868e96;
+    border-radius: 4px;
+    background: #868e96;
+    color: #f8f9fa;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
     :hover {
       background: #343b41;
       border: 1.2182px solid #343b41;

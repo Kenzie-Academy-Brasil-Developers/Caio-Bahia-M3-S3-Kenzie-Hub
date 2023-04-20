@@ -1,41 +1,17 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { api } from "../../services/api"
 import { useNavigate } from "react-router-dom"
 import Logo from "../../assets/Logo.svg"
 import { DashboardContainer } from "./style"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { UserContext } from "../../providers/userContext"
 
 export const Dashboard = () => {
   const navigate = useNavigate()
 
-  const [user, setUser] = useState("")
+  const { logout, user } = useContext(UserContext)
 
-  useEffect(() => {
-    const auth = async () => {
-      const getToken = localStorage.getItem("@KenzieHub:TOKEN")
-
-      try {
-        await api
-          .get("/profile", {
-            headers: {
-              Authorization: `Bearer ${getToken}`
-            }
-          })
-          .then((response) => {
-            setUser(response.data)
-          })
-      } catch (error) {
-        toast.error(error)
-      }
-    }
-    auth()
-  }, [])
-
-  const logout = () => {
-    localStorage.removeItem("@KenzieHub:TOKEN")
-    navigate("/")
-  }
   return (
     <DashboardContainer>
       <header>

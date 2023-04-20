@@ -1,34 +1,21 @@
 import { useForm } from "react-hook-form"
-import { useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { api } from "../../services/api"
-import { InputForm } from "./RegFormInput"
 import { schema } from "./validator"
-import { FormOptions } from "./RegFormOptions"
-import { toast } from "react-toastify"
 import { FormRegStyled } from "./style"
+import { InputForm } from "./RegFormInput"
+import { FormOptions } from "./RegFormOptions"
+import { UserContext } from "../../../providers/userContext"
+import { useContext } from "react"
 
 export const FormRegister = () => {
+  const { handleRegister } = useContext(UserContext)
+
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm({ resolver: zodResolver(schema) })
 
-  const navigate = useNavigate()
-
-  const handleRegister = async (data) => {
-    delete data.repeatpassword
-    try {
-      await api.post("/users", data)
-      toast.success("Usuário foi cadastrado com sucesso!")
-      setTimeout(() => {
-        navigate("/")
-      }, 1500)
-    } catch (error) {
-      toast.error(error.response.data.message)
-    }
-  }
   return (
     <>
       <FormRegStyled onSubmit={handleSubmit(handleRegister)}>
@@ -87,6 +74,7 @@ export const FormRegister = () => {
           error={errors.course_module?.message}
           {...register("course_module")}
         />
+
         <button type="submit">Cadastrar</button>
       </FormRegStyled>
     </>

@@ -1,17 +1,16 @@
-import { useNavigate } from "react-router-dom"
-import { FormRegister } from "../../components/FormRegister"
+import { Link, useNavigate } from "react-router-dom"
 import { MainStyled } from "./style"
 import Logo from "../../assets/Logo.svg"
+import { FormRegister } from "../../components/Forms/FormRegister"
 
 export const RegisterPage = () => {
-  const navigate = useNavigate()
   return (
     <>
       <MainStyled>
         <div className="central-div">
           <header>
             <img src={Logo} alt="Logo" />
-            <button onClick={() => navigate("/")}>Voltar</button>
+            <Link to={"/"}>Voltar</Link>
           </header>
           <section className="form-container">
             <div className="small-text-call">

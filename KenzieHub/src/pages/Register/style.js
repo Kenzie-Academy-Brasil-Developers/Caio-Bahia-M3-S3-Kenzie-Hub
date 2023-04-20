@@ -45,6 +45,26 @@ export const MainStyled = styled.main`
         font-weight: 600;
         font-size: 10px;
       }
+      a {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 16.2426px;
+
+        width: 80px;
+        height: 32px;
+
+        background: #212529;
+        border-radius: 4px;
+        border: none;
+
+        color: #f8f9fa;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 10px;
+      }
     }
     .form-container {
       display: flex;

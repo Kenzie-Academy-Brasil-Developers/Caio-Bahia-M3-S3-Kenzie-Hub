@@ -1,40 +1,20 @@
-import React from "react"
+import React, { useContext } from "react"
 import { useForm } from "react-hook-form"
-import { useNavigate } from "react-router-dom"
 import { InputLogin } from "./InputLogin"
-import { api } from "../../services/api"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { schema } from "./validator"
-import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { DivContainerFormLogin } from "./style"
+import { UserContext } from "../../../providers/userContext"
 
 export const FormLogin = () => {
-  const navigate = useNavigate()
+  const { submitForm } = useContext(UserContext)
 
-  const toRegister = () => {
-    navigate("/register")
-  }
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm({ reesolver: zodResolver(schema) })
-
-  const submitForm = async (data) => {
-    try {
-      await api.post("/sessions", data).then((response) => {
-        localStorage.setItem("@KenzieHub:TOKEN", response.data.token)
-        toast.success("Usuario foi logado com sucesso!")
-        setTimeout(() => {
-          navigate("/dashboard")
-        }, 1500)
-      })
-      // console.log(data)
-    } catch (error) {
-      toast.error(error.response.data.message)
-    }
-  }
 
   return (
     <DivContainerFormLogin>
