@@ -59,6 +59,7 @@ export const Global = createGlobalStyle`
 
   li {
     color: var(--color-secondary);;
+    list-style:none;
   }
 
 `

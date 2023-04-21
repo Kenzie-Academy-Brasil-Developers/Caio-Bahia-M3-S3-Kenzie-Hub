@@ -6,11 +6,16 @@ import { DashboardContainer } from "./style"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { UserContext } from "../../providers/userContext"
+import { TechCreateModal } from "../../components/Modal/TechManegmentModal/TechCreate"
+import { ModalContext } from "../../providers/modalContext"
+import { TechList } from "../../components/Render/TechList"
+import { TechContext } from "../../providers/techContext"
 
 export const Dashboard = () => {
   const navigate = useNavigate()
 
   const { logout, user } = useContext(UserContext)
+  const { openModalTechCreate } = useContext(ModalContext)
 
   return (
     <DashboardContainer>
@@ -27,11 +32,20 @@ export const Dashboard = () => {
         </div>
       </div>
       <div className="dashboard-app">
-        <div>
-          <h2>{"Que pena! Estamos em desenvolvimento :("}</h2>
-          <p>Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
+        <div className="tech-container">
+          <div className="tech-header">
+            <h2>Tecnologias</h2>
+            <button onClick={() => openModalTechCreate()}>+</button>
+            <TechCreateModal />
+          </div>
+          <TechList />
         </div>
       </div>
     </DashboardContainer>
   )
 }
+
+// <div>
+//   <h2>{"Que pena! Estamos em desenvolvimento :("}</h2>
+//   <p>Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
+// </div>

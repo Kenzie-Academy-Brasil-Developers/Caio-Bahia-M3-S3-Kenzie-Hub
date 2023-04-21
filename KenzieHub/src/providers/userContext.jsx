@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { api } from "../services/api"
 import { toast } from "react-toastify"
+import { set } from "react-hook-form"
 
 export const UserContext = createContext({})
 
@@ -27,6 +28,28 @@ export const UserProvider = ({ children }) => {
 
   // Login
 
+  useEffect(() => {
+    const getToken = localStorage.getItem("@KenzieHub:TOKEN")
+    const autoLogin = async () => {
+      try {
+        const response = await api.get("/profile", {
+          headers: {
+            Authorization: `Bearer ${getToken}`
+          }
+        })
+
+        navigate("/dashboard")
+      } catch (error) {
+        toast.error(error)
+      }
+    }
+    if (getToken) {
+      autoLogin()
+    } else {
+      navigate("/")
+    }
+  }, [])
+
   const submitForm = async (data) => {
     try {
       const response = await api.post("/sessions", data)
@@ -43,9 +66,8 @@ export const UserProvider = ({ children }) => {
   //Dashboard
 
   useEffect(() => {
-    const auth = async () => {
+    const authUser = async () => {
       const getToken = localStorage.getItem("@KenzieHub:TOKEN")
-
       try {
         const response = await api.get("/profile", {
           headers: {
@@ -57,16 +79,17 @@ export const UserProvider = ({ children }) => {
         toast.error(error)
       }
     }
-    auth()
+    authUser()
   }, [])
 
   const logout = () => {
+    // setUser([])
     localStorage.removeItem("@KenzieHub:TOKEN")
     navigate("/")
   }
 
   return (
-    <UserContext.Provider value={{ handleRegister, navigate, submitForm, logout, user }}>
+    <UserContext.Provider value={{ handleRegister, navigate, submitForm, logout, user, setUser }}>
       {children}
     </UserContext.Provider>
   )
