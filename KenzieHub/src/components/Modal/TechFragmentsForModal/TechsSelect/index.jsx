@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react"
 
-export const SelectTechCreate = forwardRef(({ id, label, error, ...rest }, ref) => {
+export const SelectTechLevel = forwardRef(({ id, label, error, ...rest }, ref) => {
   return (
     <div>
       {label ? <label htmlFor={id}>{label}</label> : null}

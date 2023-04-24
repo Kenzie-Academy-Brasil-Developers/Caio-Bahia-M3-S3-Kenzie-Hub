@@ -1,16 +1,27 @@
 import React, { useContext } from "react"
 import { TechContext } from "../../../providers/techContext"
+import { ModalContext } from "../../../providers/modalContext"
+import { UlTechContainerStled } from "./style"
+import { TechUpdateModal } from "../../Modal/TechManegmentModal/TechUpdate"
 
 export const TechList = () => {
   const { techList } = useContext(TechContext)
+  const { openModalTechUpdate, techUpdate, setTechClick } = useContext(ModalContext)
+
   return (
-    <ul>
-      <h2>Uma lista aqui</h2>
+    <UlTechContainerStled>
       {techList.map((tech) => (
-        <li id={tech.user.id}>
+        <li
+          id={tech.id}
+          onClick={() => {
+            openModalTechUpdate()
+            setTechClick(tech)
+          }}
+        >
           <h3>{tech.title}</h3>
+          <p>{tech.status}</p>
         </li>
       ))}
-    </ul>
+    </UlTechContainerStled>
   )
 }

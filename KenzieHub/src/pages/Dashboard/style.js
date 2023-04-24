@@ -83,15 +83,34 @@ export const DashboardContainer = styled.div`
       display: flex;
       width: 100%;
       flex-direction: column;
-      background-color: red;
       max-width: 800px;
-      background-color: grey;
       .tech-header {
         display: flex;
         flex-direction: row;
-        background-color: blue;
         justify-content: space-between;
         width: 100%;
+        align-items: center;
+        margin-bottom: 21px;
+        h2 {
+          font-weight: 600;
+          font-size: 16px;
+          color: #f8f9fa;
+        }
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+
+          color: #ffffff;
+          font-size: 18px;
+
+          background: #212529;
+          border-radius: 4px;
+          height: 32px;
+          width: 32px;
+          border: none;
+        }
       }
     }
   }

@@ -10,12 +10,13 @@ import { TechCreateModal } from "../../components/Modal/TechManegmentModal/TechC
 import { ModalContext } from "../../providers/modalContext"
 import { TechList } from "../../components/Render/TechList"
 import { TechContext } from "../../providers/techContext"
+import { TechUpdateModal } from "../../components/Modal/TechManegmentModal/TechUpdate"
 
 export const Dashboard = () => {
   const navigate = useNavigate()
 
   const { logout, user } = useContext(UserContext)
-  const { openModalTechCreate } = useContext(ModalContext)
+  const { openModalTechCreate, openModalTechUpdate } = useContext(ModalContext)
 
   return (
     <DashboardContainer>
@@ -37,6 +38,7 @@ export const Dashboard = () => {
             <h2>Tecnologias</h2>
             <button onClick={() => openModalTechCreate()}>+</button>
             <TechCreateModal />
+            <TechUpdateModal />
           </div>
           <TechList />
         </div>
@@ -44,8 +46,3 @@ export const Dashboard = () => {
     </DashboardContainer>
   )
 }
-
-// <div>
-//   <h2>{"Que pena! Estamos em desenvolvimento :("}</h2>
-//   <p>Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
-// </div>

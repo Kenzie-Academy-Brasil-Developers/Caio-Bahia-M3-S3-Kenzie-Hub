@@ -2,7 +2,6 @@ import { createContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { api } from "../services/api"
 import { toast } from "react-toastify"
-import { set } from "react-hook-form"
 
 export const UserContext = createContext({})
 
@@ -37,7 +36,7 @@ export const UserProvider = ({ children }) => {
             Authorization: `Bearer ${getToken}`
           }
         })
-
+        console.log(response)
         navigate("/dashboard")
       } catch (error) {
         toast.error(error)
@@ -74,6 +73,7 @@ export const UserProvider = ({ children }) => {
             Authorization: `Bearer ${getToken}`
           }
         })
+        console.log(response)
         setUser(response.data)
       } catch (error) {
         toast.error(error)
@@ -83,7 +83,6 @@ export const UserProvider = ({ children }) => {
   }, [])
 
   const logout = () => {
-    // setUser([])
     localStorage.removeItem("@KenzieHub:TOKEN")
     navigate("/")
   }
