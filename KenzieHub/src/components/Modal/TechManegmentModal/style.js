@@ -10,7 +10,9 @@ export const ModalBaseStyle = {
     transform: "translate(-50%, -50%)",
     padding: "0%",
     width: "95%",
-    border: "none"
+    maxWidth: "370px",
+    border: "none",
+    background: "none"
   },
   overlay: {
     background: "rgba(255, 255, 255, 0.05)"

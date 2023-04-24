@@ -26,4 +26,28 @@ export const DivModalStyled = styled.div`
       color: #868e96;
     }
   }
+  form {
+    display: flex;
+    flex-direction: column;
+    background: #212529;
+    padding: 15px;
+    padding-bottom: 25px;
+    gap: 16px;
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: 40px;
+      width: 100%;
+
+      background: #ff577f;
+      border: 1px solid #ff577f;
+      border-radius: 4px;
+
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 13px;
+    }
+  }
 `

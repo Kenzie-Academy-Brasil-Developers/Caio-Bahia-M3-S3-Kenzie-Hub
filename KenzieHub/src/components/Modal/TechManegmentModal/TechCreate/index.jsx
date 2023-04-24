@@ -7,7 +7,7 @@ import { DefautInput } from "../../../Inputs"
 import { TechContext } from "../../../../providers/techContext"
 import { TechCreateschema } from "./validator"
 import { SelectTechLevel } from "../../TechFragmentsForModal/TechsSelect"
-import { ModalBaseStyle, TechCreate } from "../style"
+import { ModalBaseStyle } from "../style"
 import { DivModalStyled } from "./style"
 
 export const TechCreateModal = () => {

@@ -1,4 +1,5 @@
 import { createContext, useState } from "react"
+import { toast } from "react-toastify"
 
 export const ModalContext = createContext({})
 
@@ -20,7 +21,10 @@ export const ModalProvider = ({ children }) => {
   }
   const closeModalTechUpdate = () => {
     setTechUpdate(false)
-    console.log("Fechou")
+  }
+
+  const cantChangeTitle = () => {
+    toast.error("Não é possivel modificar o titulo da tecnologia!")
   }
 
   return (
@@ -34,7 +38,8 @@ export const ModalProvider = ({ children }) => {
         closeModalTechUpdate,
         techClick,
         setTechClick,
-        setTechUpdate
+        setTechUpdate,
+        cantChangeTitle
       }}
     >
       {children}

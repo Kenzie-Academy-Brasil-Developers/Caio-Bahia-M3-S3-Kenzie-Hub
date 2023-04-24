@@ -7,9 +7,11 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { TechContext } from "../../../../providers/techContext"
 import { ModalBaseStyle, ModalStyled } from "../style"
+import { ContainerModal } from "./style"
 
 export const TechUpdateModal = () => {
-  const { techUpdate, closeModalTechUpdate, techClick, setTechUpdate } = useContext(ModalContext)
+  const { techUpdate, closeModalTechUpdate, techClick, setTechUpdate, cantChangeTitle } =
+    useContext(ModalContext)
   const { updateTech, deleteTech } = useContext(TechContext)
   const {
     register,
@@ -26,26 +28,34 @@ export const TechUpdateModal = () => {
       ariaHideApp={false}
       style={ModalBaseStyle}
     >
-      <ModalStyled>
+      <ContainerModal>
         <header>
           <h2>Tecnologia Detalhes</h2>
           <button onClick={closeModalTechUpdate}>X</button>
         </header>
         <form onSubmit={handleSubmit(updateTech)}>
+          <div className="Title-container">
+            <p>Nome da Tecnologia</p>
+            <div onClick={cantChangeTitle}>
+              <p>{techClick.title}</p>
+            </div>
+          </div>
           <SelectTechLevel
             id="status"
             label="Selecionar Status"
             error={errors.status?.message}
             {...register("status")}
           />
-          <div>
-            <button type="submit">Update</button>
-            <button onClick={() => deleteTech(techClick)} type="button">
-              Delete
+          <div className="button-container">
+            <button className="save-btn" type="submit">
+              Salvar alterações
+            </button>
+            <button onClick={() => deleteTech(techClick)} type="button" className="exclude-btn">
+              Excluir
             </button>
           </div>
         </form>
-      </ModalStyled>
+      </ContainerModal>
     </Modal>
   )
 }
